@@ -8,6 +8,20 @@ tree = html.fromstring(page.content)
 titles = tree.xpath('//span[@class="cue-track-title"]/text()')
 artists = tree.xpath('//span[@class="cue-track-artist"]/text()')
 
-print 'Titles: ', titles
-print 'Artists: ', artists
-
+for index in range(len(titles)):
+    print 'Artist: ',artists[index]
+    
+    pos = titles[index].split("-")
+    
+    for jndex in range(len(pos)):
+        if jndex == 0:
+            print 'Position: ',pos[jndex]
+        
+        if jndex == 1:
+            dj = pos[jndex].split("(")
+            
+            for kndex in range(len(dj)):
+                if kndex == 0:
+                    print 'Song: ',dj[kndex]
+                if kndex == 1:
+                    print 'DJ: ',dj[kndex].replace("p.","").replace(")","")
